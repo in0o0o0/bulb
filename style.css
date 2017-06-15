@@ -1,0 +1,224 @@
+body {
+	background: #eeeeee;
+	font-family: Meiryo;
+	text-align: center; 
+	line-height: 220%;
+}
+
+.board{
+	background: #ffffff;
+	width: 600px;
+	height: 600px;
+	padding: 40px;
+	margin: 0 auto;
+}
+
+#openFile{
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	padding: 0.5em;
+	font:  60px  arial;
+	border: 1px solid #cff;
+	background: #0174DF;
+	color:#fff;
+	top: 200px;
+}
+
+#openFile input[type="file"] {
+	opacity:0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 0;
+	font-size: 150px;
+}
+
+#getfile:hover{
+	background-color:#fFF;
+}
+
+.button{
+	display: inline-block;
+	padding: 2px 30px;
+	border: 2px solid #bbb;
+	overflow: visible;
+	font: bold 30px arial;
+	color: #555;
+	background-color: #E6E6E6; 
+	border-radius: 10px; 
+}
+
+#x:hover{background-color: #E6E6E6; }
+
+
+.wrap {
+    position: relative;   
+}
+
+.contents {
+	position:absolute;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	left:0px;
+	margin:auto auto;
+}
+
+#picName{
+	font-size: 40px;
+}
+
+input[type=checkbox]{
+	display:none;
+}
+
+input[type=radio]{
+	display: none;
+}
+
+select{
+    outline:none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    background: none transparent;
+    vertical-align: middle;
+    font-size: inherit;
+    color: inherit;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+}
+select option{
+  background-color: #fff;
+  color: #333;
+}
+select::-ms-expand {
+  display: none;
+}
+select:-moz-focusring { 
+  color: transparent; 
+  text-shadow: 0 0 0 #828c9a;
+}
+
+.select-wrap {
+    position:relative;
+}
+.select-wrap:before {
+    z-index: 1;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    content: "\f123";
+    font-family: "IonIcons";
+    line-height: 43px;
+    color: #7F878C;
+    pointer-events: none;
+}
+
+#mode label{
+	display: inline-block;
+	position: relative;
+	margin:0 auto 0 auto;
+	float: left;
+	width: 80px;
+	margin: 0;
+	padding: 10px;
+	background: #c0c0c0;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	line-height: 1;
+	left:20px;
+	top: 13px;
+}
+
+#mode :checked + .image_mode {
+	background-color: #FE9A2E;
+	color: #fff;
+}
+
+#mode :checked + .word_mode {
+	background-color: #FE9A2E;
+	color: #fff;
+}
+
+#hint label{
+	display: inline-block;
+	position: relative;
+	margin:0 auto 0 auto;
+	margin: 0;
+	padding: 10px;
+	background: #c0c0c0;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	line-height: 1;
+}
+
+.tool{
+	display: box;
+	display: -webkit-box;		
+	box-pack: center;
+	-webkit-box-pack: center;
+}
+	
+#sound{
+	position: relative;
+	width: 70px;
+	height: 50px;
+	font-size: 32px;
+	vertical-align: middle;	
+}
+	
+#shuf{
+	position: relative;
+	width: 80px;
+	height: 50px;
+	vertical-align: middle;
+}
+
+#counter{
+	position: absolute;
+	font-size: 40px;
+}
+
+select{
+    outline:none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    background: none transparent;
+    vertical-align: middle;
+    font-size: inherit;
+    color: inherit;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+}
+
+select{
+    outline:none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    background: none transparent;
+    vertical-align: middle;
+    font-size: inherit;
+    color: inherit;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+}
+
+select option{
+  background-color: #fff;
+  color: #333;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select:-moz-focusring { 
+  color: transparent; 
+  text-shadow: 0 0 0 #828c9a;
+}

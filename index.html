@@ -1,0 +1,75 @@
+<!--2016 3 12
+anslfagを付けた-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>bulb</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+
+</head>
+<body>
+<br>
+<div class="board">
+<span id="xxx" hidden>
+<div class="wrap">
+<img src="./img/white.jpg" height=30 >
+<span id="picName" class="contents"></span>
+</div>
+
+<div class="wrap">
+<div id="white" >
+<img src='./img/white.jpg'  onclick='showAns()' height=320 >
+</div>
+<img src="" id="picture"  onclick="showAns()" class="contents">
+</div>
+<div id="button">
+<button class='button' onclick='changeImg(0)'>◀◀</button>
+<button class='button' onclick='changeImg(1)'>&nbsp;◀&nbsp;</button>
+<button class='button' onclick='changeImg(2)'>&nbsp;▶&nbsp;</button>
+<button class='button' onclick='changeImg(3)'>▶▶</button>
+</div>
+</span>
+
+<div id="tool">
+<span id="yyy" hidden>
+<img src='./img/speeker.png' id='sound' onclick='speak()'>
+<img src='./img/shuffle.png' id='shuf' onclick='shuffle()'>
+<span class='wrap'>
+<img src='./img/white.jpg' width='160px' height=40px >
+<span class='contents' id='counter'></span>
+</span>
+<img src='./img/white.jpg' width='30px' height=25px >
+</span>
+<span id="openFile">
+<input type="FILE" multiple accept="image/*"  webkitdirectory directory id="getfile" onchange="openFile()" id="open">
+<lable for="getfile"><span id="x">&nbsp;&nbsp;Open&nbsp;&nbsp;</span></label>
+</span>
+</div>
+
+<span id="zzz" hidden>
+<div class="tool">
+
+<div id='hint'>
+<img src='./img/white.jpg' width='3px' height=40px >
+<input type='checkbox' id='init'  onclick='changeStatus()'>
+<label for='init' id='initial'>initial&nbsp;</label>
+<input type='checkbox'  id='nm'  onclick='changeStatus()'>
+<label for='nm' id='number' >number of characters</label>
+</div>
+
+<div id='mode'>
+<input type='radio' name='mode' id='image_mode' checked='checked' onclick='reverse()'>
+<label for='image_mode' class='image_mode'>image</label>
+<input type='radio'  name='mode' id='word_mode'  onclick='reverse()'>
+<label for='word_mode' class='word_mode' >word</label>
+</div>
+</div>
+<select id="language">
+</select>
+</span>
+</div>
+
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
