@@ -17,16 +17,64 @@ window.document.onkeyup = keyUp;
 var map = {16:false, 37:false, 39:false, 65:false, 70:false, 73:false, 77:false, 78:false, 79:false, 83:false};
 var unlock = {16:true, 37:true, 39:true, 65:true, 70:true, 73:true, 77:true, 78:true, 79:true, 83:true};
 var selectFocus =document.getElementById("language");
-var fileOpen=document.getElementById("open");
+var fileData=document.getElementById("getfile");
+
+document.getElementById("ans").onclick=function(){
+	showAns();
+}
+
+document.getElementById("picture").onclick=function(){
+	showAns();
+}
+
+document.getElementById("button_zero").onclick=function(){
+	changeImg(0);
+}
+
+document.getElementById("button_one").onclick=function(){
+	changeImg(1);
+}
+
+document.getElementById("button_two").onclick=function(){
+	changeImg(2);
+}
+
+document.getElementById("button_three").onclick=function(){
+	changeImg(3);
+}
+
+document.getElementById("sound").onclick=function(){
+	speak();
+}
+
+document.getElementById("shuf").onclick=function(){
+	shuffle();
+}
+
+document.getElementById("init").onclick=function(){
+	changeStatus();
+}
+
+document.getElementById("nm").onclick=function(){
+	changeStatus();
+}
+
+document.getElementById("image_mode").onclick=function(){
+	reverse();
+}
+
+document.getElementById("word_mode").onclick=function(){
+	reverse();
+}
+
 
 selectFocus.onchange=function(){
 	selectFocus.blur();
 }
 
-function openFile(){
-	var file = document.getElementById('getfile');
+fileData.onchange=function(){
 	populateVoiceList();
-	if(file.value){
+	if(fileData.value){
 		if(initFlag){
 			document.getElementById('xxx').style.display = "inline";
 			document.getElementById('yyy').style.display = "inline";
@@ -39,10 +87,10 @@ function openFile(){
 		fileList = [];
 		
 		var count = 0;
-		for(var i=0;i<file.files.length;i++){
-			if(file.files[i].webkitRelativePath.split("/").length==2){
+		for(var i=0;i<fileData.files.length;i++){
+			if(fileData.files[i].webkitRelativePath.split("/").length==2){
 				count+=1;
-				fileList.push(file.files[i]);
+				fileList.push(fileData.files[i]);
 			}
 		}
 			

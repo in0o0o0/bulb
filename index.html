@@ -1,5 +1,3 @@
-<!--2016 3 12
-anslfagを付けた-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,22 +17,22 @@ anslfagを付けた-->
 
 <div class="wrap">
 <div id="white" >
-<img src='./img/white.jpg'  onclick='showAns()' height=320 >
+<img src='./img/white.jpg'  id="ans"  height=320 >
 </div>
-<img src="" id="picture"  onclick="showAns()" class="contents">
+<img src="" id="picture"  class="contents">
 </div>
 <div id="button">
-<button class='button' onclick='changeImg(0)'>◀◀</button>
-<button class='button' onclick='changeImg(1)'>&nbsp;◀&nbsp;</button>
-<button class='button' onclick='changeImg(2)'>&nbsp;▶&nbsp;</button>
-<button class='button' onclick='changeImg(3)'>▶▶</button>
+<button class='button' id="button_zero" >◀◀</button>
+<button class='button' id="button_one" >&nbsp;◀&nbsp;</button>
+<button class='button' id="button_two" >&nbsp;▶&nbsp;</button>
+<button class='button' id="button_three" >▶▶</button>
 </div>
 </span>
 
 <div id="tool">
 <span id="yyy" hidden>
-<img src='./img/speeker.png' id='sound' onclick='speak()'>
-<img src='./img/shuffle.png' id='shuf' onclick='shuffle()'>
+<img src='./img/speeker.png' id='sound'>
+<img src='./img/shuffle.png' id='shuf'>
 <span class='wrap'>
 <img src='./img/white.jpg' width='160px' height=40px >
 <span class='contents' id='counter'></span>
@@ -42,7 +40,7 @@ anslfagを付けた-->
 <img src='./img/white.jpg' width='30px' height=25px >
 </span>
 <span id="openFile">
-<input type="FILE" multiple accept="image/*"  webkitdirectory directory id="getfile" onchange="openFile()" id="open">
+<input type="FILE" multiple accept="image/*"  webkitdirectory directory id="getfile"  id="open">
 <lable for="getfile"><span id="x">&nbsp;&nbsp;Open&nbsp;&nbsp;</span></label>
 </span>
 </div>
@@ -52,16 +50,16 @@ anslfagを付けた-->
 
 <div id='hint'>
 <img src='./img/white.jpg' width='3px' height=40px >
-<input type='checkbox' id='init'  onclick='changeStatus()'>
+<input type='checkbox' id='init'>
 <label for='init' id='initial'>initial&nbsp;</label>
-<input type='checkbox'  id='nm'  onclick='changeStatus()'>
+<input type='checkbox'  id='nm'>
 <label for='nm' id='number' >number of characters</label>
 </div>
 
 <div id='mode'>
-<input type='radio' name='mode' id='image_mode' checked='checked' onclick='reverse()'>
+<input type='radio' name='mode' id='image_mode' checked='checked'>
 <label for='image_mode' class='image_mode'>image</label>
-<input type='radio'  name='mode' id='word_mode'  onclick='reverse()'>
+<input type='radio'  name='mode' id='word_mode'>
 <label for='word_mode' class='word_mode' >word</label>
 </div>
 </div>
