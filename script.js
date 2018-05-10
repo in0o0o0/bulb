@@ -1,69 +1,69 @@
 var current;
 var max;
-var frame_width=400;
-var frame_height=300;
+var frame_width = 400;
+var frame_height = 300;
 var fileList;
 var fileIndex;
-var initFlag=true;
-var fileName= new Array(6);
-var reverseFlag=false;
-var status=4;
-var ansFlag=false;
+var initFlag = true;
+var fileName = new Array(6);
+var reverseFlag = false;
+var status = 4;
+var ansFlag = false;
 var synth = window.speechSynthesis;
-fileName[5]="";
+fileName[5] = "";
 speak();
 window.document.onkeydown = keyDown;
 window.document.onkeyup = keyUp;
 var map = {16:false, 37:false, 39:false, 65:false, 70:false, 73:false, 77:false, 78:false, 79:false, 83:false};
 var unlock = {16:true, 37:true, 39:true, 65:true, 70:true, 73:true, 77:true, 78:true, 79:true, 83:true};
-var selectFocus =document.getElementById("language");
-var fileData=document.getElementById("getfile");
+var selectFocus = document.getElementById("language");
+var fileData = document.getElementById("getfile");
 
-document.getElementById("ans").onclick=function(){
+document.getElementById("ans").onclick = function(){
 	showAns();
 }
 
-document.getElementById("picture").onclick=function(){
+document.getElementById("picture").onclick = function(){
 	showAns();
 }
 
-document.getElementById("button_zero").onclick=function(){
+document.getElementById("button_zero").onclick = function(){
 	changeImg(0);
 }
 
-document.getElementById("button_one").onclick=function(){
+document.getElementById("button_one").onclick = function(){
 	changeImg(1);
 }
 
-document.getElementById("button_two").onclick=function(){
+document.getElementById("button_two").onclick = function(){
 	changeImg(2);
 }
 
-document.getElementById("button_three").onclick=function(){
+document.getElementById("button_three").onclick = function(){
 	changeImg(3);
 }
 
-document.getElementById("sound").onclick=function(){
+document.getElementById("sound").onclick = function(){
 	speak();
 }
 
-document.getElementById("shuf").onclick=function(){
+document.getElementById("shuf").onclick = function(){
 	shuffle();
 }
 
-document.getElementById("init").onclick=function(){
+document.getElementById("init").onclick = function(){
 	changeStatus();
 }
 
-document.getElementById("nm").onclick=function(){
+document.getElementById("nm").onclick = function(){
 	changeStatus();
 }
 
-document.getElementById("image_mode").onclick=function(){
+document.getElementById("image_mode").onclick = function(){
 	reverse();
 }
 
-document.getElementById("word_mode").onclick=function(){
+document.getElementById("word_mode").onclick = function(){
 	reverse();
 }
 
@@ -79,8 +79,8 @@ fileData.onchange=function(){
 			document.getElementById('xxx').style.display = "inline";
 			document.getElementById('yyy').style.display = "inline";
 			document.getElementById('zzz').style.display = "inline";
-			document.getElementById("openFile").style.fontSize="20px";
-			document.getElementById("openFile").style.top="20px";
+			document.getElementById("openFile").style.fontSize = "20px";
+			document.getElementById("openFile").style.top = "20px";
 			initFlag=false;	
 		}
 		
@@ -102,31 +102,29 @@ fileData.onchange=function(){
 		setName(fileList[fileIndex[0]].name);
 	
 		if(reverseFlag){
-			document.getElementById("picName").innerHTML=fileName[0];
-			document.getElementById("picture").src="./img/white.jpg";		
+			document.getElementById("picName").innerHTML = fileName[0];
+			document.getElementById("picture").src = "./img/white.jpg";		
 		}else{
-			document.getElementById("picName").innerHTML=fileName[status];
+			document.getElementById("picName").innerHTML = fileName[status];
 	 		read(0);
 		}
 		ansFlag=false;
 		current=0;
-		document.getElementById("counter").innerHTML=(current+1)+"/"+max;
+		document.getElementById("counter").innerHTML = (current+1)+"/"+max;
 	}
 }
 
 function populateVoiceList() {
-  voices = synth.getVoices();
-  var voiceSelect = document.getElementById('language');
-  for(i = 0; i < voices.length ; i++) {
-    var option = document.createElement('option');
-    option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
-    option.value=i;
- 
-    option.setAttribute('data-lang', voices[i].lang);
-    option.setAttribute('data-name', voices[i].name);
-
-    voiceSelect.appendChild(option);
-  }
+	voices = synth.getVoices();
+	var voiceSelect = document.getElementById('language');
+	for(i = 0; i < voices.length ; i++) {
+		var option = document.createElement('option');
+		option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+		option.value=i;
+ 		option.setAttribute('data-lang', voices[i].lang);
+		option.setAttribute('data-name', voices[i].name);	
+		voiceSelect.appendChild(option);
+	}
 }
 
 function read(n){
@@ -184,7 +182,7 @@ function keyDown(){
         
 		if(map[73] && unlock[73] && document.getElementById("image_mode").checked){
 			if(document.getElementById("init").checked)
-				document.getElementById("init").checked=false;
+				document.getElementById("init").checked = false;
 			else
 				document.getElementById("init").checked = true;
 			changeStatus();
@@ -236,10 +234,10 @@ function keyUp(){
  
 function shuffle(){
 	 for(var i=max-1;i>1;i--){
-	 	var x=Math.floor( Math.random() * i );
-	 	var tmp=fileIndex[i];
-	 	fileIndex[i]=fileIndex[x];
-	 	fileIndex[x]=tmp;
+	 	var x=  Math.floor( Math.random() * i );
+	 	var tmp = fileIndex[i];
+	 	fileIndex[i] = fileIndex[x];
+	 	fileIndex[x] = tmp;
 	 }
 
 	 current=0;
@@ -247,13 +245,13 @@ function shuffle(){
 	 setName(fileList[fileIndex[0]].name);
 	 
 	 if(reverseFlag){
-		document.getElementById("picName").innerHTML=fileName[0];
+		document.getElementById("picName").innerHTML = fileName[0];
 		document.getElementById("picture").src="./img/white.jpg";
 	 }else{
-		document.getElementById("picName").innerHTML=fileName[status];
+		document.getElementById("picName").innerHTML = fileName[status];
 		read(fileIndex[current]);	
 	 }
-	 document.getElementById("counter").innerHTML=(current+1)+"/"+max;
+	 document.getElementById("counter").innerHTML = (current+1)+"/"+max;
 }
 
 function reverse(){
@@ -284,7 +282,7 @@ function reverse(){
 			document.getElementById("number").style.backgroundColor = "#c0c0c0";
 		document.getElementById("init").disabled=false;
 		document.getElementById("nm").disabled=false;
-		document.getElementById("picName").innerHTML=fileName[status];
+		document.getElementById("picName").innerHTML = fileName[status];
 		read(fileIndex[current]);
 	}
 	ansFlag=false;
@@ -299,7 +297,7 @@ function changeStatus(){
 		status=3;
 	else
 		status=4;
-	document.getElementById("picName").innerHTML=fileName[status];
+	document.getElementById("picName").innerHTML = fileName[status];
 	ansFlag=false;
 	if(document.getElementById("init").checked)
 		document.getElementById("initial").style.backgroundColor = "#66CCFF";
@@ -314,13 +312,13 @@ function changeStatus(){
 function showAns(){
 	if(!reverseFlag){
 		if(ansFlag){
-			document.getElementById("picName").innerHTML=fileName[status];
+			document.getElementById("picName").innerHTML = fileName[status];
 		}else{
-			document.getElementById("picName").innerHTML=fileName[0];
+			document.getElementById("picName").innerHTML = fileName[0];
 		}
 	}else{
 		if(ansFlag){
-			document.getElementById("picture").src="./img/white.jpg";
+			document.getElementById("picture").src = "./img/white.jpg";
 		}else{
 			read(fileIndex[current]);
 		}
@@ -340,50 +338,50 @@ function setName(n){
 		if(tmp2[i].match(/[^\x01-\x7E]|[ -~]+/)){
 			if(tmp2[i].charAt(0).match("#")){
 				for(var j=0;j<5;j++){
-					fileName[j]+=tmp2[i].substr(1);
-					fileName[j]+=" ";
+					fileName[j] += tmp2[i].substr(1);
+					fileName[j] += " ";
 				}
 			}else{
 				fileName[0]+=tmp2[i]+" ";
 			
-				fileName[1]+=tmp2[i].charAt(0);
-				fileName[1]+="<span style='letter-spacing:4px;'>";
+				fileName[1] += tmp2[i].charAt(0);
+				fileName[1] += "<span style='letter-spacing:4px;'>";
 				for(var j=0;j<tmp2[i].length-1;j++)
 					fileName[1]+="_";		
 				fileName[1]+="</span> ";
 			
-				fileName[2]+=tmp2[i].charAt(0);
+				fileName[2] += tmp2[i].charAt(0);
 				if(tmp2[i].length!=1)
 					fileName[2]+=line;
 				fileName[2]+=" ";
 			
-				fileName[3]+="<span style='letter-spacing:4px;'>_";
+				fileName[3] += "<span style='letter-spacing:4px;'>_";
 				for(var j=0;j<tmp2[i].length-1;j++)
-					fileName[3]+="_";
-				fileName[3]+="</span> ";
+					fileName[3] += "_";
+				fileName[3] += "</span> ";
 			
-				fileName[4]+=line+" ";
+				fileName[4] += line+" ";
 			}
 		}
 	}	
 	fileName[5] += fileName[0];
 	if(fileName[0].length>25 && fileName[0].length<=30){
 		for(var i=0;i<5;i++)
-			fileName[i]="<span style='font-size: 35px;'>"+fileName[i]+"</span>";
+			fileName[i] = "<span style='font-size: 35px;'>"+fileName[i]+"</span>";
 	}else if(fileName[0].length>30 && fileName[0].length<=35){
 		for(var i=0;i<5;i++)
-			fileName[i]="<span style='font-size: 30px;'>"+fileName[i]+"</span>";
+			fileName[i] = "<span style='font-size: 30px;'>"+fileName[i]+"</span>";
 	}else if(fileName[0].length>35 && fileName[0].length<=40){
 		for(var i=0;i<5;i++)
-			fileName[i]="<span style='font-size: 25px;'>"+fileName[i]+"</span>";
+			fileName[i] = "<span style = 'font-size: 25px;'>"+fileName[i]+"</span>";
 	}else if(fileName[0].length>40){
 		for(var i=0;i<5;i++)
-			fileName[i]="<span style='font-size: 20px;'>"+fileName[i]+"</span>";
+			fileName[i]="<span style = 'font-size: 20px;'>"+fileName[i]+"</span>";
 	}
 }
 
 function changeImg(n){
-	document.getElementById("init").checked=false;
+	document.getElementById("init").checked = false;
 	document.getElementById("nm").checked = false;
 	changeStatus();
 
@@ -404,17 +402,17 @@ function changeImg(n){
 	}
 
 	if(current!=x){
-		current=x;
-		document.getElementById("counter").innerHTML=(current+1)+"/"+max;
+		current = x;
+		document.getElementById("counter").innerHTML = (current+1)+"/"+max;
 		setName(fileList[fileIndex[current]].name);
 		if(!reverseFlag){
-			document.getElementById("picName").innerHTML=fileName[status];
+			document.getElementById("picName").innerHTML = fileName[status];
 			nameFlag=false;
 			read(fileIndex[x]);
 		}else{
 			imgFlag=false;
-			document.getElementById("picture").src="./img/white.jpg";
-			document.getElementById("picName").innerHTML=fileName[0];
+			document.getElementById("picture").src = "./img/white.jpg";
+			document.getElementById("picName").innerHTML = fileName[0];
 		}
 		ansFlag=false;
 	}
